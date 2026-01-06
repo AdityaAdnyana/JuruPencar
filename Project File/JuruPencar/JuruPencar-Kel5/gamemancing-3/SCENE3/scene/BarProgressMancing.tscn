@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://d0iyboyd3h2v0"]
+
+[ext_resource type="Texture2D" uid="uid://dvogrko08x106" path="res://SCENE3/asset/art/progress_bar_under.png" id="1_638l3"]
+[ext_resource type="Texture2D" uid="uid://co0h17hyyonjf" path="res://SCENE3/asset/art/progress_bar_upper.png" id="2_8knvp"]
+[ext_resource type="Texture2D" uid="uid://qb2qf8nf67rc" path="res://SCENE3/asset/art/progress_mancing.png" id="3_msoue"]
+[ext_resource type="Script" uid="uid://bnvs1ew5l7433" path="res://SCENE3/script/FishingProgress.gd" id="4_64dx6"]
+[ext_resource type="Texture2D" uid="uid://dy8pok17mup7m" path="res://SCENE3/asset/art/external/SAMPLE PACK - Pixel Gnome Fishing Pack/A - Salt Water/Anchovy Outline.png" id="5_yofty"]
+
+[node name="BarProgressMancing" type="CanvasLayer"]
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+texture_filter = 1
+offset_left = 88.0
+offset_top = 48.0
+offset_right = 216.0
+offset_bottom = 63.0
+scale = Vector2(2.285, 2.285)
+texture_under = ExtResource("1_638l3")
+texture_over = ExtResource("2_8knvp")
+texture_progress = ExtResource("3_msoue")
+texture_progress_offset = Vector2(6, 1)
+script = ExtResource("4_64dx6")
+
+[node name="Sprite2D" type="Sprite2D" parent="TextureProgressBar"]
+position = Vector2(0, 7)
+scale = Vector2(0.745, 0.745)
+texture = ExtResource("5_yofty")
+offset = Vector2(9, 0)

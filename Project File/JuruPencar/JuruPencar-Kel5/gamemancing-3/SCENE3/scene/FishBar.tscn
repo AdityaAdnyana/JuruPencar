@@ -1,0 +1,169 @@
+[gd_scene load_steps=20 format=3 uid="uid://dvkdkwtr8srrc"]
+
+[ext_resource type="Texture2D" uid="uid://bq25xy1l6x5uo" path="res://SCENE3/asset/art/Bar.png" id="1_m2sye"]
+[ext_resource type="Texture2D" uid="uid://cnx643o23x1lw" path="res://SCENE3/asset/art/circle_click.png" id="2_6dvt1"]
+[ext_resource type="Texture2D" uid="uid://bxaovnlo5w5lq" path="res://SCENE3/asset/art/circle_fish_spawn.png" id="2_oogna"]
+[ext_resource type="Script" uid="uid://dog55oo4tx8x" path="res://SCENE3/script/CircleClickUp.gd" id="3_6dvt1"]
+[ext_resource type="Script" uid="uid://by6n2rmamh2uw" path="res://SCENE3/script/FishSpawnUp.gd" id="3_ae2ov"]
+[ext_resource type="Script" uid="uid://wovgecn7c625" path="res://SCENE3/script/FishSpawnDown.gd" id="3_oogna"]
+[ext_resource type="Script" uid="uid://deiv8mbktceao" path="res://SCENE3/script/CircleClickDown.gd" id="5_4xcfc"]
+[ext_resource type="Script" uid="uid://dl5plcpi6elgy" path="res://SCENE3/script/BatasBar.gd" id="5_6wobp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xcfc"]
+atlas = ExtResource("2_6dvt1")
+region = Rect2(17, 0, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_etdr1"]
+atlas = ExtResource("2_6dvt1")
+region = Rect2(0, 0, 17, 15)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kvydk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xcfc")
+}],
+"loop": true,
+"name": &"click",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_etdr1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mfdyr"]
+atlas = ExtResource("2_oogna")
+region = Rect2(0, 0, 13, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iraox"]
+atlas = ExtResource("2_oogna")
+region = Rect2(13, 0, 13, 13)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0270c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mfdyr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iraox")
+}],
+"loop": true,
+"name": &"spawn",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0270c"]
+atlas = ExtResource("2_oogna")
+region = Rect2(0, 0, 13, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y18bd"]
+atlas = ExtResource("2_oogna")
+region = Rect2(13, 0, 13, 13)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y18bd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0270c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y18bd")
+}],
+"loop": true,
+"name": &"spawn",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wvwnv"]
+size = Vector2(11.3169, 51.358)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6wobp"]
+radius = 9.31169
+
+[node name="FishBar" type="CanvasLayer"]
+
+[node name="bar_up" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(600, 224)
+scale = Vector2(6.075, 6.075)
+texture = ExtResource("1_m2sye")
+
+[node name="CircleClick" type="AnimatedSprite2D" parent="bar_up"]
+position = Vector2(-47.7612, 0)
+sprite_frames = SubResource("SpriteFrames_kvydk")
+animation = &"click"
+autoplay = "default"
+script = ExtResource("3_6dvt1")
+
+[node name="FishSpawn" type="AnimatedSprite2D" parent="bar_up"]
+position = Vector2(49, 0)
+sprite_frames = SubResource("SpriteFrames_0270c")
+animation = &"spawn"
+autoplay = "default"
+script = ExtResource("3_ae2ov")
+
+[node name="bar_down" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(600, 384)
+scale = Vector2(6.075, 6.075)
+texture = ExtResource("1_m2sye")
+
+[node name="CircleClick" type="AnimatedSprite2D" parent="bar_down"]
+position = Vector2(-47.7612, 0)
+sprite_frames = SubResource("SpriteFrames_kvydk")
+animation = &"click"
+autoplay = "default"
+script = ExtResource("5_4xcfc")
+
+[node name="FishSpawn" type="AnimatedSprite2D" parent="bar_down"]
+position = Vector2(49, 0)
+sprite_frames = SubResource("SpriteFrames_y18bd")
+animation = &"spawn"
+autoplay = "default"
+script = ExtResource("3_oogna")
+
+[node name="batas_bar" type="Area2D" parent="."]
+scale = Vector2(6.075, 6.075)
+script = ExtResource("5_6wobp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="batas_bar"]
+position = Vector2(123, 173.6)
+shape = SubResource("RectangleShape2D_wvwnv")
+
+[node name="ClickDetectionAtas" type="Area2D" parent="."]
+position = Vector2(150, 125.6)
+scale = Vector2(6.075, 6.075)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickDetectionAtas"]
+position = Vector2(25.3498, 42.535)
+shape = SubResource("CircleShape2D_6wobp")
+
+[node name="ClickDetectionBawah" type="Area2D" parent="."]
+position = Vector2(150, 205.6)
+scale = Vector2(6.075, 6.075)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickDetectionBawah"]
+position = Vector2(25.3498, 3.0288)
+shape = SubResource("CircleShape2D_6wobp")
+
+[connection signal="area_entered" from="batas_bar" to="batas_bar" method="_on_area_entered"]
+[connection signal="area_entered" from="ClickDetectionAtas" to="bar_up/CircleClick" method="_on_click_detection_atas_area_entered"]
+[connection signal="area_exited" from="ClickDetectionAtas" to="bar_up/CircleClick" method="_on_click_detection_atas_area_exited"]
+[connection signal="area_entered" from="ClickDetectionBawah" to="bar_down/CircleClick" method="_on_click_detection_bawah_area_entered"]
+[connection signal="area_exited" from="ClickDetectionBawah" to="bar_down/CircleClick" method="_on_click_detection_bawah_area_exited"]

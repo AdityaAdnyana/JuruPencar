@@ -1,0 +1,122 @@
+[gd_scene load_steps=16 format=3 uid="uid://bj0nkb6inq0ax"]
+
+[ext_resource type="PackedScene" uid="uid://xq1ox23lc2fg" path="res://SCENE2/player.tscn" id="1_3r24c"]
+[ext_resource type="Script" uid="uid://30o1uoej7y7s" path="res://SCENE2/barrier.gd" id="2_4bgvd"]
+[ext_resource type="PackedScene" uid="uid://b70xqhlhll7fl" path="res://SCENE2/salmon.tscn" id="2_ogt5y"]
+[ext_resource type="PackedScene" uid="uid://dh4dbiaqpho1v" path="res://SCENE2/catFish.tscn" id="3_oq54p"]
+[ext_resource type="PackedScene" uid="uid://10u5bd26c2i" path="res://SCENE2/clown_fish.tscn" id="4_c5w0c"]
+[ext_resource type="PackedScene" uid="uid://ctjc4eylkq4r5" path="res://SCENE2/blue_fish.tscn" id="5_f618r"]
+[ext_resource type="Texture2D" uid="uid://bvyo11smprwi" path="res://SCENE2/Sprite/Fish1.png" id="7_4ia8e"]
+[ext_resource type="Texture2D" uid="uid://dki2uog22xxe3" path="res://SCENE2/Sprite/seaBackGround Sprite.png" id="8_mu6jc"]
+[ext_resource type="Texture2D" uid="uid://m65n8ejqvg8j" path="res://SCENE2/Sprite/seaDepth.png" id="9_lpdaq"]
+[ext_resource type="PackedScene" uid="uid://djx2au64aw3y5" path="res://TransitionScreen.tscn" id="10_qpj3a"]
+[ext_resource type="Script" uid="uid://beqovw4oe54qf" path="res://SCENE2/Scripte/TransitionScreen.gd" id="11_qtol3"]
+[ext_resource type="AudioStream" uid="uid://cxxc0vq06j77g" path="res://SCENE2/music/underwater-ambience-376890.mp3" id="12_33m6e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ogt5y"]
+size = Vector2(1804, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oq54p"]
+size = Vector2(63, 3227.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ia8e"]
+size = Vector2(1769.5, 73)
+
+[node name="Scene2" type="Node2D"]
+
+[node name="Node" type="Node" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node"]
+position = Vector2(3, 629)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Node/StaticBody2D"]
+position = Vector2(279, -936)
+shape = SubResource("RectangleShape2D_ogt5y")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Node"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node/StaticBody2D2"]
+position = Vector2(-644, 1315.38)
+shape = SubResource("RectangleShape2D_oq54p")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Node/StaticBody2D2"]
+position = Vector2(1198, 1284)
+shape = SubResource("RectangleShape2D_oq54p")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Node"]
+position = Vector2(3, 629)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Node/StaticBody2D3"]
+position = Vector2(279, -936)
+shape = SubResource("RectangleShape2D_ogt5y")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Node"]
+position = Vector2(23, 2229)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Node/StaticBody2D4"]
+position = Vector2(279, -936)
+shape = SubResource("RectangleShape2D_ogt5y")
+
+[node name="Area2D" type="Area2D" parent="Node/StaticBody2D4"]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Node/StaticBody2D4/Area2D"]
+position = Vector2(279, -963)
+shape = SubResource("RectangleShape2D_ogt5y")
+
+[node name="Player" parent="." instance=ExtResource("1_3r24c")]
+position = Vector2(606, 0)
+
+[node name="Area2D" type="Area2D" parent="." groups=["barrier"]]
+visible = false
+script = ExtResource("2_4bgvd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(273, 1327)
+shape = SubResource("RectangleShape2D_4ia8e")
+
+[node name="catFish" parent="." instance=ExtResource("3_oq54p")]
+position = Vector2(477, 801)
+
+[node name="salmon" parent="." instance=ExtResource("2_ogt5y")]
+position = Vector2(131, 803)
+
+[node name="clownFish" parent="." instance=ExtResource("4_c5w0c")]
+position = Vector2(293, 803)
+
+[node name="blueFish" parent="." instance=ExtResource("5_f618r")]
+position = Vector2(725, 644)
+
+[node name="Fish1" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-211, 1379)
+scale = Vector2(8.59375, 14.1875)
+texture = ExtResource("7_4ia8e")
+
+[node name="Sea" type="Parallax2D" parent="."]
+repeat_size = Vector2(160, 0)
+
+[node name="SeaBackGround" type="Sprite2D" parent="Sea"]
+z_index = -2
+texture_filter = 1
+position = Vector2(318, 2172)
+scale = Vector2(4, 3.33133)
+texture = ExtResource("8_mu6jc")
+
+[node name="SeaDepth" type="Sprite2D" parent="Sea"]
+position = Vector2(322.5, 1966)
+scale = Vector2(3.99479, 3.06133)
+texture = ExtResource("9_lpdaq")
+
+[node name="TransitionScreen" parent="." instance=ExtResource("10_qpj3a")]
+script = ExtResource("11_qtol3")
+
+[node name="ColorRect" parent="TransitionScreen" index="0"]
+color = Color(0.298039, 0.45098, 0.894118, 1)
+
+[node name="BGM_Underwater" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_33m6e")
+autoplay = true
+
+[connection signal="body_entered" from="Node/StaticBody2D4/Area2D" to="Area2D" method="_on_area_2d_body_entered"]
+
+[editable path="TransitionScreen"]

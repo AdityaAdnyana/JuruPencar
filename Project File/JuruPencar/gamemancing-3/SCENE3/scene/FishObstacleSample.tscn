@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bduh6k7kqgkqr"]
+
+[ext_resource type="Script" uid="uid://cdjjy6mj54b5d" path="res://SCENE3/script/FishObstacleSample.gd" id="1_w3y35"]
+[ext_resource type="Texture2D" uid="uid://dy8pok17mup7m" path="res://SCENE3/asset/art/external/SAMPLE PACK - Pixel Gnome Fishing Pack/A - Salt Water/Anchovy Outline.png" id="2_yp4mm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u5hen"]
+
+[node name="FishObstacleSample" type="Area2D"]
+script = ExtResource("1_w3y35")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_yp4mm")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_u5hen")

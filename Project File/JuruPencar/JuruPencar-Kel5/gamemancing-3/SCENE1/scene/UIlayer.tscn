@@ -1,0 +1,255 @@
+[gd_scene load_steps=18 format=3 uid="uid://bkjo2g0obwb7i"]
+
+[ext_resource type="Script" uid="uid://cbdcjsord8620" path="res://SCENE1/Script/ui_layer.gd" id="1_idgau"]
+[ext_resource type="Texture2D" uid="uid://drw0yv3m1m1vi" path="res://SCENE1/assets/art/collection/button/menu-button1.png" id="1_we1cd"]
+[ext_resource type="Texture2D" uid="uid://ciwxe0ojshv3h" path="res://SCENE1/assets/art/collection/button/menu-button2.png" id="2_idgau"]
+[ext_resource type="Texture2D" uid="uid://c7orifoii24wa" path="res://SCENE1/assets/art/collection/button/button-close2.png" id="4_rq2x7"]
+[ext_resource type="Texture2D" uid="uid://bk6lp8gpkobpf" path="res://SCENE1/assets/art/inventory/Icons_16.png" id="4_s5lry"]
+[ext_resource type="Texture2D" uid="uid://dibualgixh5se" path="res://SCENE1/assets/art/collection/button/button-close1.png" id="5_7e2fu"]
+[ext_resource type="Texture2D" uid="uid://bvpjr4qhqp704" path="res://SCENE3/button-quit1.png" id="5_t127q"]
+[ext_resource type="Texture2D" uid="uid://2sbghv5fgob" path="res://SCENE1/assets/art/inventory/inventory.png" id="6_cnqlj"]
+[ext_resource type="Script" uid="uid://bagkkh4jo8a71" path="res://SCENE1/Script/InventoryUI.gd" id="7_cnqlj"]
+[ext_resource type="Texture2D" uid="uid://bvpqo3y4ph4vb" path="res://SCENE1/assets/art/inventory/inventory-box.png" id="8_bewp4"]
+[ext_resource type="Texture2D" uid="uid://yfmdol25yglx" path="res://SCENE3/button-quit2.png" id="8_hnfm4"]
+[ext_resource type="Script" uid="uid://b72jy6i78548d" path="res://SCENE1/Script/FishContainerInfo.gd" id="9_i0df0"]
+[ext_resource type="Texture2D" uid="uid://ckes16j81fljw" path="res://SCENE1/assets/art/collection/salt water/Anchovy Outline.png" id="9_k0hea"]
+[ext_resource type="Texture2D" uid="uid://dh215j63l74fg" path="res://SCENE1/assets/art/collection/salt water/Clownfish Outline.png" id="10_1tf1h"]
+[ext_resource type="Texture2D" uid="uid://gc6sf2h86q5e" path="res://SCENE1/assets/art/collection/salt water/Surgeonfish Outline.png" id="11_s5lry"]
+[ext_resource type="Texture2D" uid="uid://dvfyu4yjoa7r2" path="res://SCENE1/assets/art/collection/fish/Salmon.png" id="12_ik0a6"]
+[ext_resource type="Texture2D" uid="uid://drtpqhb4if63f" path="res://SCENE1/assets/art/collection/freshwater/Catfish Outline.png" id="14_pjsut"]
+
+[node name="UIlayer" type="CanvasLayer"]
+script = ExtResource("1_idgau")
+
+[node name="MenuButton" type="TextureButton" parent="."]
+texture_filter = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -88.0
+offset_top = 8.0
+offset_right = -58.0
+offset_bottom = 36.0
+grow_horizontal = 0
+scale = Vector2(2.7, 2.7)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("1_we1cd")
+texture_pressed = ExtResource("2_idgau")
+
+[node name="CollectionButton" type="TextureButton" parent="."]
+texture_filter = 1
+anchors_preset = -1
+anchor_left = 0.854
+anchor_top = 0.025
+anchor_right = 0.854
+anchor_bottom = 0.025
+offset_left = 0.191956
+offset_top = -0.200001
+offset_right = 32.192
+offset_bottom = 31.8
+scale = Vector2(2, 2)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("4_s5lry")
+
+[node name="MenuPanel" type="TextureRect" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -200.0
+offset_right = 150.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = -100.0
+offset_right = -100.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="tombolexit" type="TextureButton" parent="MenuPanel/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("5_t127q")
+texture_pressed = ExtResource("8_hnfm4")
+stretch_mode = 0
+
+[node name="TombolClose" type="TextureButton" parent="MenuPanel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_right = -5.0
+offset_bottom = 32.0
+grow_horizontal = 0
+texture_normal = ExtResource("5_7e2fu")
+texture_pressed = ExtResource("4_rq2x7")
+
+[node name="InventoryPanel" type="TextureRect" parent="."]
+visible = false
+texture_filter = 1
+offset_left = 256.0
+offset_top = -32.0
+offset_right = 384.0
+offset_bottom = 96.0
+scale = Vector2(5.545, 5.545)
+texture = ExtResource("6_cnqlj")
+script = ExtResource("7_cnqlj")
+
+[node name="GridContainer" type="GridContainer" parent="InventoryPanel"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 35.0
+offset_right = 109.0
+offset_bottom = 113.0
+columns = 4
+script = ExtResource("9_i0df0")
+
+[node name="BassFish" type="TextureRect" parent="InventoryPanel/GridContainer"]
+layout_mode = 2
+texture = ExtResource("8_bewp4")
+
+[node name="Label" type="Label" parent="InventoryPanel/GridContainer/BassFish"]
+layout_mode = 0
+offset_left = 7.0514
+offset_top = 12.6105
+offset_right = 25.0514
+offset_bottom = 35.6105
+scale = Vector2(0.255, 0.255)
+text = "x0"
+
+[node name="TextureRect" type="TextureRect" parent="InventoryPanel/GridContainer/BassFish"]
+layout_mode = 0
+offset_left = 3.36249
+offset_top = 1.62579
+offset_right = 21.3625
+offset_bottom = 20.6258
+scale = Vector2(0.69, 0.69)
+texture = ExtResource("9_k0hea")
+
+[node name="ClownFish" type="TextureRect" parent="InventoryPanel/GridContainer"]
+layout_mode = 2
+texture = ExtResource("8_bewp4")
+
+[node name="Label" type="Label" parent="InventoryPanel/GridContainer/ClownFish"]
+layout_mode = 0
+offset_left = 7.0514
+offset_top = 12.6105
+offset_right = 25.0514
+offset_bottom = 35.6105
+scale = Vector2(0.255, 0.255)
+text = "x0"
+
+[node name="TextureRect" type="TextureRect" parent="InventoryPanel/GridContainer/ClownFish"]
+layout_mode = 0
+offset_left = 3.36249
+offset_top = 1.62579
+offset_right = 21.3625
+offset_bottom = 20.6258
+scale = Vector2(0.69, 0.69)
+texture = ExtResource("10_1tf1h")
+
+[node name="DoryFish" type="TextureRect" parent="InventoryPanel/GridContainer"]
+layout_mode = 2
+texture = ExtResource("8_bewp4")
+
+[node name="Label" type="Label" parent="InventoryPanel/GridContainer/DoryFish"]
+layout_mode = 0
+offset_left = 7.0514
+offset_top = 12.6105
+offset_right = 25.0514
+offset_bottom = 35.6105
+scale = Vector2(0.255, 0.255)
+text = "x0"
+
+[node name="TextureRect" type="TextureRect" parent="InventoryPanel/GridContainer/DoryFish"]
+layout_mode = 0
+offset_left = 3.36249
+offset_top = 1.62579
+offset_right = 21.3625
+offset_bottom = 20.6258
+scale = Vector2(0.69, 0.69)
+texture = ExtResource("11_s5lry")
+
+[node name="CatFish" type="TextureRect" parent="InventoryPanel/GridContainer"]
+layout_mode = 2
+texture = ExtResource("8_bewp4")
+
+[node name="Label" type="Label" parent="InventoryPanel/GridContainer/CatFish"]
+layout_mode = 0
+offset_left = 7.0514
+offset_top = 12.6105
+offset_right = 25.0514
+offset_bottom = 35.6105
+scale = Vector2(0.255, 0.255)
+text = "x0"
+
+[node name="TextureRect" type="TextureRect" parent="InventoryPanel/GridContainer/CatFish"]
+layout_mode = 0
+offset_left = 3.36249
+offset_top = 1.62579
+offset_right = 21.3625
+offset_bottom = 20.6258
+scale = Vector2(0.69, 0.69)
+texture = ExtResource("14_pjsut")
+
+[node name="SalmonFish" type="TextureRect" parent="InventoryPanel/GridContainer"]
+layout_mode = 2
+texture = ExtResource("8_bewp4")
+
+[node name="Label" type="Label" parent="InventoryPanel/GridContainer/SalmonFish"]
+layout_mode = 0
+offset_left = 7.0514
+offset_top = 12.6105
+offset_right = 25.0514
+offset_bottom = 35.6105
+scale = Vector2(0.255, 0.255)
+text = "x0"
+
+[node name="TextureRect" type="TextureRect" parent="InventoryPanel/GridContainer/SalmonFish"]
+layout_mode = 0
+offset_left = 3.36249
+offset_top = 1.62579
+offset_right = 21.3625
+offset_bottom = 20.6258
+scale = Vector2(0.69, 0.69)
+texture = ExtResource("12_ik0a6")
+
+[node name="CloseButton" type="TextureButton" parent="InventoryPanel"]
+layout_mode = 0
+offset_left = 94.0
+offset_top = 18.0
+offset_right = 125.0
+offset_bottom = 46.0
+scale = Vector2(0.5, 0.5)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("5_7e2fu")
+texture_pressed = ExtResource("4_rq2x7")
+
+[node name="TongIkan" type="TextureRect" parent="InventoryPanel"]
+layout_mode = 0
+offset_left = -5.77096
+offset_top = 83.679
+offset_right = 34.229
+offset_bottom = 123.679
+texture = ExtResource("4_s5lry")
+
+[node name="SFXPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="CollectionButton" to="." method="_on_collection_button_pressed"]
+[connection signal="pressed" from="MenuPanel/VBoxContainer/tombolexit" to="." method="_on_tombolexit_pressed"]
+[connection signal="pressed" from="MenuPanel/TombolClose" to="." method="_on_tombol_close_pressed"]
+[connection signal="pressed" from="InventoryPanel/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="InventoryPanel/CloseButton" to="InventoryPanel" method="_on_close_button_pressed"]

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgb2cyut3gluc"]
+
+[ext_resource type="Script" uid="uid://d2qhjwl5yhqjc" path="res://script/MusicData.gd" id="1_01v0f"]
+
+[sub_resource type="AudioStreamMP3" id="AudioStreamMP3_01v0f"]
+loop = true
+
+[node name="MusicLatarScene3" type="AudioStreamPlayer"]
+stream = SubResource("AudioStreamMP3_01v0f")
+script = ExtResource("1_01v0f")

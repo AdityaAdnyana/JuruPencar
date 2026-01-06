@@ -1,0 +1,69 @@
+[gd_scene load_steps=9 format=3 uid="uid://xq1ox23lc2fg"]
+
+[ext_resource type="Script" uid="uid://drbppxcfq4mgf" path="res://SCENE2/Scripte/movement.gd" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://cy23yn284ovd8" path="res://SCENE2/Sprite/Player_worm.png" id="2_onrkg"]
+[ext_resource type="Texture2D" uid="uid://bao3mofbm38rj" path="res://SCENE2/Sprite/tali pancing.png" id="3_i3pqv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e3eik"]
+radius = 17.4642
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3pqv"]
+atlas = ExtResource("2_onrkg")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqtel"]
+atlas = ExtResource("2_onrkg")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sweqy"]
+atlas = ExtResource("2_onrkg")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2hs0m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3pqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqtel")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sweqy")
+}],
+"loop": true,
+"name": &"pl_anim_scn2",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_onrkg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 12)
+shape = SubResource("CircleShape2D_e3eik")
+
+[node name="Area2D" type="Area2D" parent="." groups=["player"]]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2(1.65703, -5)
+scale = Vector2(45.1875, 1)
+polygon = PackedVector2Array(0.56084, 1, 0.42806, -10, 0.11824, -8, -0.634181, 4, -0.700571, 14, -0.19158, 38, 0.33954, 29)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_2hs0m")
+animation = &"pl_anim_scn2"
+autoplay = "pl_anim_scn2"
+frame_progress = 0.0195322
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-2, -254)
+scale = Vector2(2, 2)
+texture = ExtResource("3_i3pqv")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

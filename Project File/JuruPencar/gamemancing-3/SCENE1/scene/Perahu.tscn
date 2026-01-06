@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://ce05f6iu05666"]
+
+[ext_resource type="Texture2D" uid="uid://dwemhaioqus0g" path="res://SCENE1/assets/tileset/Boat.png" id="1_prghc"]
+[ext_resource type="Script" uid="uid://deoel6ew0om2t" path="res://SCENE1/Script/perahu.gd" id="2_ak1ke"]
+
+[node name="Perahu" type="Sprite2D"]
+texture_filter = 1
+texture = ExtResource("1_prghc")
+script = ExtResource("2_ak1ke")

@@ -1,0 +1,92 @@
+[gd_scene load_steps=6 format=3 uid="uid://cj5nkdt2hpf0o"]
+
+[ext_resource type="PackedScene" uid="uid://bptpd7t4mkxfm" path="res://SCENE3/scene/ObstacleManager.tscn" id="1_i8sw6"]
+[ext_resource type="PackedScene" uid="uid://dvkdkwtr8srrc" path="res://SCENE3/scene/FishBar.tscn" id="2_rxvcw"]
+[ext_resource type="PackedScene" uid="uid://d0iyboyd3h2v0" path="res://SCENE3/scene/BarProgressMancing.tscn" id="3_py84j"]
+[ext_resource type="Texture2D" uid="uid://b0nat4p5osjcn" path="res://SCENE3/asset/art/backroundst.png" id="4_0joip"]
+[ext_resource type="PackedScene" uid="uid://djx2au64aw3y5" path="res://TransitionScreen.tscn" id="5_y748e"]
+
+[node name="FishingMechanic" type="Node2D"]
+texture_filter = 1
+
+[node name="BackGround" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_0joip")
+centered = false
+
+[node name="ObstacleManager" parent="." instance=ExtResource("1_i8sw6")]
+
+[node name="FishBar" parent="." instance=ExtResource("2_rxvcw")]
+
+[node name="bar_up" parent="FishBar" index="0"]
+position = Vector2(584, 232)
+
+[node name="bar_down" parent="FishBar" index="1"]
+position = Vector2(584, 400)
+
+[node name="CollisionShape2D" parent="FishBar/batas_bar" index="0"]
+position = Vector2(31.9959, 52.0164)
+
+[node name="CollisionShape2D" parent="FishBar/ClickDetectionAtas" index="0"]
+position = Vector2(22.7161, 17.5144)
+
+[node name="CollisionShape2D" parent="FishBar/ClickDetectionBawah" index="0"]
+position = Vector2(22.716, 32)
+
+[node name="BarProgressMancing" parent="." instance=ExtResource("3_py84j")]
+
+[node name="TextureProgressBar" parent="BarProgressMancing" index="0"]
+offset_left = 40.0
+offset_top = 16.0
+offset_right = 168.0
+offset_bottom = 31.0
+scale = Vector2(8.365, 8.365)
+
+[node name="Sprite2D" parent="BarProgressMancing/TextureProgressBar" index="0"]
+texture = null
+
+[node name="Label" type="Label" parent="."]
+offset_left = 112.0
+offset_top = 184.0
+offset_right = 122.0
+offset_bottom = 207.0
+scale = Vector2(4.67, 4.67)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "Z"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 109.0
+offset_top = 349.0
+offset_right = 119.0
+offset_bottom = 372.0
+scale = Vector2(4.67, 4.67)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "X"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Timer" type="Timer" parent="CanvasLayer"]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="Label" type="Label" parent="CanvasLayer/Timer"]
+texture_filter = 1
+offset_right = 145.0
+offset_bottom = 82.0
+scale = Vector2(8, 8)
+theme_override_font_sizes/font_size = 36
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TransitionScreen" parent="." instance=ExtResource("5_y748e")]
+
+[node name="ColorRect" parent="TransitionScreen" index="0"]
+color = Color(0, 0.117647, 0.168627, 1)
+
+[editable path="FishBar"]
+[editable path="BarProgressMancing"]
+[editable path="TransitionScreen"]

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0defxt1ln5vr"]
+
+[ext_resource type="Texture2D" uid="uid://l8c210tptotq" path="res://asset/art/external/SAMPLE PACK - Pixel Gnome Fishing Pack/C - Misc/Worm.png" id="1_v0eg4"]
+
+[node name="umpan" type="Sprite2D"]
+texture = ExtResource("1_v0eg4")
