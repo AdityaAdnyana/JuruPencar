@@ -29,29 +29,29 @@ Open the project in Godot Engine 4.
 Build/Run the project.
 
 
-**The Team (ARTSCIM)**
+### **The Team (ARTSCIM)**
 This project was developed by Software Engineering students from Telkom University Surabaya:
 
-**I Putu Gde Aditya Stiti Adnyana** 
-*Role: Project Lead, Game Design, Programmer, Integration Engineer.*
-*Focus: Scene 3 Implementation, System Integration, and Final Polish.*
+### **I Putu Gde Aditya Stiti Adnyana** 
+* *Role: Project Lead, Game Design, Programmer, Integration Engineer.*
+* *Focus: Scene 3 Implementation, System Integration, and Final Polish.*
 
-**Farid Abdurochman Al-Azzam**
-*Role: Game Design, Programmer.*
-*Focus: Scene 2 Implementation.*
+### **Farid Abdurochman Al-Azzam**
+* *Role: Game Design, Programmer.*
+* *Focus: Scene 2 Implementation.*
 
-**Ridho Ananta Wibowo** 
-*Role: Game Design, Programmer.*
-*Focus: Scene 3 Implementation.*
+### **Ridho Ananta Wibowo** 
+* *Role: Game Design, Programmer.*
+* *Focus: Scene 3 Implementation.*
 
-**Salman Alfarisi Hafidzuddin** 
-*Role: Game Design.*
-*Focus: Scene 2 Implementation.*
+### **Salman Alfarisi Hafidzuddin** 
+* *Role: Game Design.*
+* *Focus: Scene 2 Implementation.*
 
-**I Gede Putu Artha Jaya Winangun**
-*Role: Documentation, Programmer.*
-*Focus: Game Design Document (GDD), Scene 1 Implementation.*
+### **I Gede Putu Artha Jaya Winangun**
+* *Role: Documentation, Programmer.*
+* *Focus: Game Design Document (GDD), Scene 1 Implementation.*
 
-**Pradipta Firdaus Eka Nugraha**
-*Role: Documentation, UI.*
-*Focus: Game Design Document (GDD), Scene 1 Implementation.*
+### **Pradipta Firdaus Eka Nugraha**
+* *Role: Documentation, UI.*
+* *Focus: Game Design Document (GDD), Scene 1 Implementation.*
