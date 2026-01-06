@@ -1,17 +1,17 @@
-**JuruPencar**
+### **JuruPencar**
 JuruPencar is an adventure fishing game that introduces a novel gameplay mechanic to the genre. Instead of traditional passive fishing simulation, this project challenges players with rhythm-based interactions.
 
 
 *Developed in January 2026, this project made for our final task on Game Development For Software Engineering Subject.*
 
 
-**Key Features**
+### **Key Features**
 Unique Mechanics: Implements Rhythm Mechanic in Scene 3 and 2 Different Movement for Main Scene and Scene 2
 
 
-**Game Loop:** Catch -> Collection -> Level Up -> Explore
+### **Game Loop:** Catch -> Collection -> Level Up -> Explore
 
-**Technologies Used**
+### **Technologies Used**
 Language: GDScript
 
 Engine/Framework: Godot Engine 4
@@ -22,10 +22,10 @@ Installation and Setup
 Clone the repository:
 
 
-Bash
+```Bash
 git clone https://github.com/AdityaAdnyana/JuruPencar.git
+```
 Open the project in Godot Engine 4.
-
 Build/Run the project.
 
 
